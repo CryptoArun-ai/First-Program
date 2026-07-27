@@ -1,0 +1,140 @@
+#include<stdio.h>
+#include<conio.h>
+int main(){
+clrscr();
+int num[10],frq[10];
+int i,j,k,c=0,n,user,temp;
+textcolor(RED);
+cprintf("----------------------Welcome To bad Program-----------------------");
+printf("\n");
+textcolor(MAGENTA);
+cprintf("\n>>>Type 1 to Enter Program : ");
+scanf("%d",&user);
+if(user==1){
+textcolor(MAGENTA);
+cprintf(">>>Enter Array Size : ");
+scanf("%d",&n);
+printf("\n----------------------------------------------------------------\n");
+for(i=0;i<n;i++){
+textcolor(GREEN);
+cprintf(">>>Enter %d Elements : ",i+1);
+scanf("%d",&num[i]);
+frq[i]=-1;
+}
+printf("\n----------------------------------------------------------------\n");
+textcolor(LIGHTGREEN);
+cprintf("You Enter Array = ");
+printf("[");
+for(i=0;i<n;i++)  {
+printf("%d",num[i]);
+if(i<n-1)
+printf("-");
+}
+}
+printf("]");
+
+printf("\n----------------------------------------------------------------\n");
+textcolor(MAGENTA);
+cprintf(">>>Enter 2 to start sorting, else press any key to go next step :  " );
+scanf("%d",&user);
+textcolor(LIGHTRED);
+cprintf("\nSorting started.....");
+cprintf("\nProcessing : ");
+if(user==2){
+for(i=0;i< n;i++){
+	for(j=i+1;j<n;j++){
+		if(num[i]>num[j]){
+		temp=num[i];
+		num[i]=num[j];
+		num[j]=temp;
+		}
+		else
+		num[i]=num[i];
+	 }
+if(i<5){
+c=c+20;
+printf("%d% ",c);
+}
+}
+
+}
+cprintf("\nArray sorted Succefully");
+printf("\n----------------------------------------------------------------\n");
+textcolor(MAGENTA);
+cprintf(">>>If you want to check sorted array, pls type 3 : ");
+scanf("%d",&user);
+if(user==3){
+printf("\n----------------------------------------------------------------\n");
+textcolor(LIGHTGREEN);
+printf("\n");
+cprintf("Sorted Array = ");
+cprintf("[");
+for(i=0;i<n;i++)  {
+printf("%d",num[i]);
+if(i<n-1)
+printf("-");
+}
+cprintf("]");
+}
+printf("\n----------------------------------------------------------------\n");
+textcolor(MAGENTA);
+cprintf("\n>>>Type 4 to start frq count : ");
+scanf("%d",&user);
+if(user==4){
+c=0;
+textcolor(LIGHTRED);
+cprintf("\nFrquency counting Start....");
+cprintf("\nProcessing : ");
+for(i=0;i<n;i++){
+	if(frq[i]==0)
+	continue;
+frq[i]=1;
+}
+for(i=0;i< n;i++){
+	for(j=i+1;j<n;j++){
+		if(num[i]==num[j]){
+			frq[j]=0;
+			frq[i]++;
+		}
+	}
+
+
+if(i<5)   {
+c=c+20;
+printf("%d% ",c);
+}
+
+}
+}
+cprintf("\nFrq count succssfully");
+printf("\n----------------------------------------------------------------\n");
+textcolor(LIGHTGREEN);
+cprintf("\n>>>Enter 5 check frq count els type any to skip: ");
+scanf("%d",&user);
+if(user==5){
+	printf("Num = ");
+	for(i=0;i<n;i++){
+		printf("%d",num[i]);
+	}
+
+	printf("||");
+		printf("Frq = ");
+	for(i=0;i<n;i++){
+		printf("%d",frq[i]);
+	}
+	printf("\n----------------------------------------------------------------\n");
+	for(i=0;i<n;i++){
+		for(j=0;j<n;j++){
+			if(i+1==num[j]){
+				printf("frq %d count = ",i+1);
+				printf("%d",frq[j]);
+				printf("\n");
+				break;
+			}
+		}
+	}
+}
+printf("\n----------------------------------------------------------------\n");
+getch();
+
+}
